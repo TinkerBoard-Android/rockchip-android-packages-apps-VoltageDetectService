@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.asus.voltagedetectservice">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application>
+
+        <receiver android:name=".BootUpReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".WarningReceiver">
+            <intent-filter>
+                <action android:name="com.asus.voltagedetectservice.WARNING_ACTION"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".WarningActivity"
+            android:theme="@style/WarningStyle">
+        </activity>
+
+        <service android:name="com.asus.voltagedetectservice.VoltageDetectService"/>
+
+    </application>
+
+</manifest>
