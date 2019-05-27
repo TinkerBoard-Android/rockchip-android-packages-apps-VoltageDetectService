@@ -21,7 +21,7 @@ public class BootUpReceiver extends BroadcastReceiver {
                 BufferedReader boardinfoBufReader = new BufferedReader(boardinfoIstreamReader);
                 String boardName = boardinfoBufReader.readLine();
 
-                if (boardName.equals("Tinker Board S")) {
+                if (boardName.equals("Tinker Board S") || boardName.equals("Tinker R/BR")) {
                     Log.i(TAG, "Start VoltageDetectService");
 
                     Intent serviceIntent = new Intent(context, VoltageDetectService.class);
