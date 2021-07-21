@@ -16,7 +16,7 @@ public class BootUpReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
             try {
-                InputStream boardinfoIstream = Runtime.getRuntime().exec("cat /proc/board_info").getInputStream();
+                InputStream boardinfoIstream = Runtime.getRuntime().exec("cat /proc/boardinfo").getInputStream();
                 InputStreamReader boardinfoIstreamReader = new InputStreamReader(boardinfoIstream);
                 BufferedReader boardinfoBufReader = new BufferedReader(boardinfoIstreamReader);
                 String boardName = boardinfoBufReader.readLine();
